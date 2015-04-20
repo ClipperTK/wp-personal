@@ -1,9 +1,6 @@
 [submodule "carrington-core"]
 	path = carrington-core
 	url = git@github.com:crowdfavorite/wp-carrington-core.git
-[submodule "plugins/social"]
-	path = plugins/social
-	url = git@github.com:crowdfavorite/wp-social.git
 [submodule "plugins/cf-archive-title"]
 	path = plugins/cf-archive-title
 	url = git@github.com:crowdfavorite/wp-archive-title.git
@@ -22,6 +19,3 @@
 [submodule "assets/js/fitvids"]
 	path = assets/js/fitvids
 	url = git@github.com:crowdfavorite-mirrors/jquery-fit-vids.git
-[submodule "plugins/social-native-broadcasts"]
-	path = plugins/social-native-broadcasts
-	url = git@github.com:crowdfavorite/wp-social-native-broadcasts.git

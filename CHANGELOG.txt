@@ -1,8 +1,11 @@
-# FavePersonal
+# Personal
 
-## Version XX
+## Version 2.0
 
 - (change) The gallery function is now preferring the fields exposed by the WP 3.6+ Media Library (while still respecting content entered in previous versions of WP)
+- (change) The Social plugin is no longer bundled with the theme.
+- (change) Now hosted on WordPress.org.
+- (change) This is a fork of the FavePersonal theme by Crowd Favorite.
 
 ## Version 1.5
 

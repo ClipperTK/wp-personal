@@ -74,7 +74,7 @@ include_once(CFCT_PATH.'functions/patch-nav-menu.php');
 include_once(CFCT_PATH.'functions/admin.php');
 
 function cfcp_load_social() {
-	if (get_option('cfcp_social_enabled') != 'no') {
+	if (class_exists('Social')) {
 // load filters for Social
 		add_filter('social_plugins_url', 'cfcp_social_plugins_url');
 		add_filter('social_plugins_path', 'cfcp_social_plugins_path');

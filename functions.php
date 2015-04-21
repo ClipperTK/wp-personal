@@ -80,10 +80,6 @@ function cfcp_load_social() {
 		add_filter('social_plugins_path', 'cfcp_social_plugins_path');
 		add_filter('social_items_comment_avatar_size', 'cfcp_social_items_comment_avatar_size');
 		add_action('set_current_user', array('Social', 'social_loaded_by_theme'));
-		if (!class_exists('Social')) {
-// load Social if not already loaded
-			include_once(CFCT_PATH.'plugins/social/social.php');
-		}
 	}
 }
 add_action('after_setup_theme', 'cfcp_load_social');

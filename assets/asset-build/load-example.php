@@ -19,7 +19,7 @@ global $blog;
 cfct_template_file('assets', 'config');
 
 if (!is_admin()) {
-	$asset_url = trailingslashit(get_bloginfo('template_url'));
+	$asset_url = trailingslashit(get_template_directory_uri());
 	foreach (Bundler::$build_profiles as $bundler) {
 
 		$asset_url_prefix = $asset_url;

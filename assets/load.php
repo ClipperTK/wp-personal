@@ -28,7 +28,7 @@ include_once(CFCT_PATH.'assets/colors.php');
 
 // Used for conditional comments with wp_enqueue_style
 global $wp_styles;
-$assets_url = trailingslashit(get_bloginfo('template_url')) . 'assets/';
+$assets_url = trailingslashit(get_template_directory_uri()) . 'assets/';
 $personal_bundle = (CFCT_PRODUCTION ? array('bundle-personal') : array());
 
 wp_register_script(

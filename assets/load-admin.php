@@ -19,7 +19,7 @@
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-$assets_url = trailingslashit(get_bloginfo('template_url')) . 'assets/';
+$assets_url = trailingslashit(get_template_directory_uri()) . 'assets/';
 /* Let's load some styles that will be used on all theme setting pages */
 wp_enqueue_style('cf-admin-css', $assets_url.'css/admin.css', array(), CFCT_THEME_VERSION);
 ?>

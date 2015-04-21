@@ -13,8 +13,8 @@
 [submodule "assets/js/cf-popover"]
 	path = assets/js/cf-popover
 	url = git@github.com:crowdfavorite/jquery-popover.git
-[submodule "plugins/cf-colors"]
-	path = plugins/cf-colors
+[submodule "plugins/wp-colors"]
+	path = plugins/wp-colors
 	url = git@github.com:alexkingorg/wp-colors.git
 [submodule "assets/js/fitvids"]
 	path = assets/js/fitvids

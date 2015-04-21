@@ -1,5 +1,4 @@
 <div class="wrap cf cf-about-wrap cf-clearfix">
-	<?php screen_icon(); ?>
 	<h2><?php _e('Bio Widget Settings', 'favepersonal'); ?></h2>
 	
 <?php 

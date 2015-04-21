@@ -3,7 +3,8 @@
 ## Version 2.0
 
 - (change) The gallery function is now preferring the fields exposed by the WP 3.6+ Media Library (while still respecting content entered in previous versions of WP)
-- (change) The Social plugin is no longer bundled with the theme.
+- (change) When using photos attached to a post for a gallery, you can now drag and drop to order them in your gallery.
+- (change) The Social plugin is no longer bundled with the theme. Activate it separately if you would like your site to have its features. http://wordpress.org/plugins/social
 - (change) Now hosted on WordPress.org.
 - (change) This is a fork of the FavePersonal theme by Crowd Favorite.
 

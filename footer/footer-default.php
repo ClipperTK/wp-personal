@@ -3,11 +3,14 @@
 /**
  * @package favepersonal
  *
- * This file is part of the FavePersonal Theme for WordPress
- * http://crowdfavorite.com/favepersonal/
+ * This file is part of the Personal Theme for WordPress
+ * http://github.com/alexkingorg/wp-personal
+ * (Forked from http://crowdfavorite.com/favepersonal/)
  *
  * Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
  * http://crowdfavorite.com
+ *
+ * Copyright (c) 2015 Alex King.
  *
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
@@ -26,7 +29,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 	<footer id="footer">
 		<div class="container clearfix">
-			<p class="credit"><?php _e('Powered by <a href="http://wordpress.org/">WordPress</a> &nbsp;&middot;&nbsp; <a href="http://crowdfavorite.com/favepersonal/" title="Elegant WordPress development and design services.">FavePersonal by Crowd Favorite</a>', 'favepersonal'); ?></p>
+			<p class="credit"><?php _e('Powered by <a href="http://wordpress.org/">WordPress</a> &nbsp;&middot;&nbsp; <a href="http://github.com/alexkingorg/personal/">Get Personal</a>', 'favepersonal'); ?></p>
 <?php
 $colophon = cfct_get_option('cfcp_copyright', false);
 $sep = ($colophon ? ' &nbsp;&middot;&nbsp; ' : '');

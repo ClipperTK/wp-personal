@@ -3,16 +3,19 @@
 /**
  * @package favepersonal
  *
- * This file is part of the FavePersonal Theme for WordPress
- * http://crowdfavorite.com/favepersonal/
+ * This file is part of the Personal Theme for WordPress
+ * http://github.com/alexkingorg/wp-personal
+ * (Forked from http://crowdfavorite.com/favepersonal/)
  *
  * Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
  * http://crowdfavorite.com
  *
+ * Copyright (c) 2015 Alex King.
+ *
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
 
@@ -27,11 +30,18 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	</div>
 	<div class="entry-content">
 <?php
-cfcp_gallery_excerpt(array(
+
+$args = array(
 	'size' => 'thumb-img',
 	'before' => '<div class="entry-media clearfix">',
 	'after' => '</div>'
-));
+);
+
+if (cfpf_post_gallery_type() == 'shortcode') {
+	$args['attachment_ids'] = cfpf_post_gallery_shortcode_ids();
+}
+
+cfcp_gallery_excerpt($args);
 
 the_excerpt();
 ?>

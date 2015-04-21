@@ -3,11 +3,14 @@
 /**
  * @package favepersonal
  *
- * This file is part of the FavePersonal Theme for WordPress
- * http://crowdfavorite.com/favepersonal/
+ * This file is part of the Personal Theme for WordPress
+ * http://github.com/alexkingorg/wp-personal
+ * (Forked from http://crowdfavorite.com/favepersonal/)
  *
  * Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
  * http://crowdfavorite.com
+ *
+ * Copyright (c) 2015 Alex King.
  *
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
@@ -71,16 +74,12 @@ include_once(CFCT_PATH.'functions/patch-nav-menu.php');
 include_once(CFCT_PATH.'functions/admin.php');
 
 function cfcp_load_social() {
-	if (get_option('cfcp_social_enabled') != 'no') {
+	if (class_exists('Social')) {
 // load filters for Social
 		add_filter('social_plugins_url', 'cfcp_social_plugins_url');
 		add_filter('social_plugins_path', 'cfcp_social_plugins_path');
 		add_filter('social_items_comment_avatar_size', 'cfcp_social_items_comment_avatar_size');
 		add_action('set_current_user', array('Social', 'social_loaded_by_theme'));
-		if (!class_exists('Social')) {
-// load Social if not already loaded
-			include_once(CFCT_PATH.'plugins/social/social.php');
-		}
 	}
 }
 add_action('after_setup_theme', 'cfcp_load_social');

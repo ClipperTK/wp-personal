@@ -1,4 +1,14 @@
-# FavePersonal
+# Personal
+
+## Version 2.0
+
+- (add) When using photos attached to a post for a gallery, you can now drag and drop to order them in your gallery.
+- (add) Post formats tabs are now responsive and include icons.
+- (change) The gallery function is now preferring the fields exposed by the WP 3.6+ Media Library (while still respecting content entered in previous versions of WP)
+- (change) The Social plugin is no longer bundled with the theme. Activate it separately if you would like your site to have its features. http://wordpress.org/plugins/social
+- (change) Now hosted on WordPress.org. This is a fork of the FavePersonal theme by Crowd Favorite.
+- (fix) Gallery post format preview works as expected on WordPress 4.1.x.
+- (fix) Various changes to conform to WP Theme Check.
 
 ## Version 1.5
 

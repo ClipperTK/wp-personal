@@ -3,16 +3,19 @@
 /**
  * @package favepersonal
  *
- * This file is part of the FavePersonal Theme for WordPress
- * http://crowdfavorite.com/favepersonal/
+ * This file is part of the Personal Theme for WordPress
+ * http://github.com/alexkingorg/wp-personal
+ * (Forked from http://crowdfavorite.com/favepersonal/)
  *
  * Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
  * http://crowdfavorite.com
  *
+ * Copyright (c) 2015 Alex King.
+ *
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
 
@@ -23,7 +26,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 remove_filter('post_gallery', 'cfcp_gallery_shortcode', 1, 2);
 
 ?>
-<p><?php echo do_shortcode('[gallery size="thumb-img"]'); ?></p>
-<?php 
+<p><?php cfpf_gallery_output(array('size' => 'thumb-img')); ?></p>
+<?php
 
 cfct_the_excerpt_feed();

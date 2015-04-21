@@ -3,16 +3,19 @@
 /**
  * @package favepersonal
  *
- * This file is part of the FavePersonal Theme for WordPress
- * http://crowdfavorite.com/favepersonal/
+ * This file is part of the Personal Theme for WordPress
+ * http://github.com/alexkingorg/wp-personal
+ * (Forked from http://crowdfavorite.com/favepersonal/)
  *
  * Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
  * http://crowdfavorite.com
  *
+ * Copyright (c) 2015 Alex King.
+ *
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
 
@@ -31,16 +34,23 @@ $content_width = '710'; // set for this view
 	</header>
 <?php
 
-cfcp_gallery(array(
-	'before' => '<div class="entry-media">',
-	'after' => '</div>',
-));
+if (cfpf_post_gallery_type() == 'shortcode') {
+	echo '<div class="entry-media">';
+	cfpf_gallery_output();
+	echo '</div>';
+}
+else {
+	cfcp_gallery(array(
+		'before' => '<div class="entry-media">',
+		'after' => '</div>',
+	));
+}
 
 ?>
 	<div class="entry-content clearfix">
-<?php 
+<?php
 
-the_content('<span class="more-link">'.__('Continued&hellip;', 'favepersonal').'</span>'); 
+the_content('<span class="more-link">'.__('Continued&hellip;', 'favepersonal').'</span>');
 $args = array(
 	'before' => '<p class="pages-link">'. __('Pages: ', 'favepersonal'),
 	'after' => "</p>\n",

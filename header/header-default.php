@@ -3,11 +3,14 @@
 /**
  * @package favepersonal
  *
- * This file is part of the FavePersonal Theme for WordPress
- * http://crowdfavorite.com/favepersonal/
+ * This file is part of the Personal Theme for WordPress
+ * http://github.com/alexkingorg/wp-personal
+ * (Forked from http://crowdfavorite.com/favepersonal/)
  *
  * Copyright (c) 2008-2013 Crowd Favorite, Ltd. All rights reserved.
  * http://crowdfavorite.com
+ *
+ * Copyright (c) 2015 Alex King.
  *
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
@@ -29,7 +32,7 @@ $title_description = (is_home() && !empty($blog_desc) ? ' - '.$blog_desc : '');
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes() ?>> <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo('charset') ?>" />
-	<title><?php wp_title( '-', true, 'right' ); echo esc_html( get_bloginfo('name'), 1 ).$title_description; ?></title>
+	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<?php /*
 	Empty conditional comment prevents blocking downloads in IE8. Good ol' IE.
 	See http://www.phpied.com/conditional-comments-block-downloads/ for more info. */ ?>

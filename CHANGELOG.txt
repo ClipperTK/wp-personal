@@ -1,5 +1,8 @@
 # Personal
 
+## Version 2.0.1
+
+- (change) Use wp_remote_get() for Theme Check compatibility.
 - (change) Remove social links from Bio widget.
 
 ## Version 2.0

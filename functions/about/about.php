@@ -3,19 +3,16 @@
 /*
 Plugin Name: About Settings & Widget
 Description: About&hellip;
-Version: 1.0.1
+Version: 1.2
 Author: Crowd Favorite
 Author URI: http://crowdfavorite.com
 */
 
-define('CFCP_ABOUT_VERSION', '1.0.1');
+define('CFCP_ABOUT_VERSION', '1.2');
 define('CFCP_ABOUT_SETTINGS', 'cfcp_about_settings');
 
 // Init
 include_once('widget/about.php');
-if (is_admin()) {
-	include_once('lib/cf-favicon-fetch.class.php');
-}
 
 function cfcp_about_admin_init() {
 	global $pagenow, $plugin_page;
@@ -99,126 +96,6 @@ function cfcp_about_admin_ajax() {
 					'key' => $_POST['key'],
 					'html' => (!empty($results) ? $results : '<div class="cfp-img-search-no-results">'.__('No results found.', 'favepersonal').'</div>')
 				);
-				
-				break;
-			case 'cfcp_fetch_favicon':
-				usleep(500000); // pause for 1/2 second to allow the spinner to at least display in the admin
-				
-				$u = new CF_Favicon_Fetch(cfcp_about_get_favicon_dir());
-				$favicon = $u->have_site_favicon($_POST['url']);
-
-				if (empty($favicon)) {
-					$success = false;
-					$favicon = $u->get_site_favicon_url($_POST['url']);
-
-					if (!empty($favicon)) {
-						$success = true;
-						$favicon_status = 'new';
-					}
-					else {
-						$success = false;
-						$favicon = cfcp_about_favicon_url('default');
-						$favicon_status = 'default';
-					}
-				}
-				else {
-					$success = true;
-					$favicon = cfcp_about_favicon_url($favicon);
-					$favicon_status = 'local';
-				}
-				
-				$ret = array(
-					'success' => $success,
-					'favicon_url' => $favicon,
-					'favicon_status' => $favicon_status
-				);
-				
-				break;
-			case 'cfcp_save_favicon':
-				$success = false;
-				$error = '';
-				$link = array(
-					'title' => trim($_POST['link']['title']),
-					'url' => trim($_POST['link']['url']), // if we need to support relative urls then the esc_url will have to go
-					'favicon' => trim($_POST['link']['favicon']),
-					'favicon_status' => trim($_POST['link']['favicon_status']),
-				);
-
-				$qs = strpos($link['favicon'], '?');
-				if ($qs !== false) {
-					$link['favicon'] = substr($link['favicon'], 0, $qs);
-				}
-
-				// fetch
-				if (!empty($link['url']) && !empty($link['title'])) {
-					if ($link['favicon_status'] == 'new') {
-
-						$u = new CF_Favicon_Fetch(cfcp_about_get_favicon_dir());						
-						$a = $u->get_favicon($link['url']);
-				
-						if (!empty($a) && $a != 'default') {
-							$link['favicon'] = basename($a);
-							$link['favicon_status'] = 'local';
-						}
-						else {
-							$link['favicon'] = 'default';
-							$link['favicon_status'] = 'local';
-						}
-
-						if (!empty($link['favicon'])) {
-							$success = true;
-						}
-						else {
-							$error = $u->get_last_error();
-						}
-					}
-					elseif ($link['favicon_status'] == 'local' || $link['favicon_status'] == 'default') {
-						if ($link['favicon_status'] == 'default') {
-							$link['favicon'] = 'default';
-						}
-						else {
-							$link['favicon'] = basename($link['favicon']);
-						}
-						$success = true;
-					}
-					elseif ($link['favicon_status'] == 'custom') {
-						$u = new CF_Favicon_Fetch(cfcp_about_get_favicon_dir());						
-						// download and save favicon
-						$f_data = $u->fetch_favicon($link['favicon']);
-						$filename = $u->make_filename($link['url'], $f_data['ext']);
-						if ($u->save_file($filename, $f_data) !== false) {
-							$link['favicon'] = $filename;
-							$link['favicon_status'] = 'local';
-							$success = true;
-						}
-					}
-				}
-				else {
-					if (empty($link['title'])) {
-						$error += '<p>'.__('Please enter a valid link title.', 'favepersonal').'</p>';
-					}
-					if (empty($link['url'])) {
-						$error += '<p>'.__('Please enter a valid link URL.', 'favepersonal').'</p>';
-					}
-				}
-
-				// formulate response
-				if ($success) {
-					$ret = array(
-						'success' => true,
-						'html' => cfct_template_content(
-							'functions/about/views',
-							'link-item',
-							compact('link')
-						)
-					);
-				}
-				else {
-					$ret = array(
-						'success' => false,
-						'error' => $error
-					);
-				}
 				
 				break;
 		}
@@ -329,31 +206,4 @@ function cfcp_about_get_settings() {
 		'images' => array(),
 		'links' => array()
 	));
-}
-
-function cfcp_about_favicon_url($favicon = 'default') {
-	// in the future the $favicon will come in as just a filename
-	if ($favicon == 'default') {
-		$favicon_url = trailingslashit(get_template_directory_uri()).'assets/img/default-favicon.png';
-	}
-	else {
-		$favicon_url = trailingslashit(cfcp_about_get_favicon_dir_url()).$favicon;
-	}
-	return $favicon_url;
-}
-
-function cfcp_about_get_favicon_dir_url() {
-	$upload_dir_info = wp_upload_dir();
-	return apply_filters(
-		'cfcp_about_favicon_dir_url',
-		trailingslashit($upload_dir_info['baseurl']).'favicons'
-	);
-}
-
-function cfcp_about_get_favicon_dir() {
-	$upload_dir_info = wp_upload_dir();
-	return apply_filters(
-		'cfcp_about_favicon_dir',
-		trailingslashit($upload_dir_info['basedir']).'favicons'
-	);
 }

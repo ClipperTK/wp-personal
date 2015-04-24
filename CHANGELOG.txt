@@ -1,5 +1,7 @@
 # Personal
 
+- (change) Remove social links from Bio widget.
+
 ## Version 2.0
 
 - (add) When using photos attached to a post for a gallery, you can now drag and drop to order them in your gallery.

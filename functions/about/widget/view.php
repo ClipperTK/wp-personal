@@ -22,19 +22,3 @@ if (!empty($settings['images']) && count($settings['images'])) {
 	<h2 class="bio-box-title"><?php echo $settings['title']; ?></h2>
 	<?php echo do_shortcode(wpautop(wptexturize($settings['description']))); ?>
 </div>
-<?php
-if (!empty($settings['links'])) {
-	echo '<div class="bio-box-links clearfix"><ul>';
-	foreach ($settings['links'] as $link) {
-		if (empty($link['url']) || empty($link['title'])) {
-			continue;
-		}
-		if (empty($link['favicon'])) {
-			$link['favicon'] = 'default';
-		}
-		echo '<li><a href="'.esc_url($link['url']).'" title="'.esc_attr($link['title']).'" rel="me">'.
-			'<img width="16" height="16" alt="'.esc_attr($link['title']).'" src="'.cfcp_about_favicon_url($link['favicon']).'" /></a></li>'.PHP_EOL;
-	}
-	echo '</ul></div>';
-}
-?>

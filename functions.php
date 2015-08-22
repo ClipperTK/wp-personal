@@ -40,14 +40,14 @@ define('CFCT_PRODUCTION', true);
 /**
  * Theme version.
  */
-define('CFCT_THEME_VERSION', '1.5');
+define('CFCT_THEME_VERSION', '2.0.2');
 
 /**
  * Theme URL version.
  * Added to query var at the end of assets to force browser cache to reload after upgrade.
  */
 if (!(defined('CFCT_URL_VERSION'))) {
-	define('CFCT_URL_VERSION', '6');
+	define('CFCT_URL_VERSION', '7');
 }
 
 /**

@@ -29,7 +29,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 	<footer id="footer">
 		<div class="container clearfix">
-			<p class="credit"><?php _e('Powered by <a href="http://wordpress.org/">WordPress</a> &nbsp;&middot;&nbsp; <a href="http://github.com/alexkingorg/personal/">Get Personal</a>', 'favepersonal'); ?></p>
+			<p class="credit"><?php _e('Powered by <a href="http://wordpress.org/">WordPress</a> &nbsp;&middot;&nbsp; <a href="http://github.com/alexkingorg/wp-personal/">Get Personal</a>', 'favepersonal'); ?></p>
 <?php
 $colophon = cfct_get_option('cfcp_copyright', false);
 $sep = ($colophon ? ' &nbsp;&middot;&nbsp; ' : '');
